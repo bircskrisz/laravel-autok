@@ -11,5 +11,3 @@
 .phpunit.result.cache
 .idea
 .vscode
-/database/*.sqlite
-/node_modules

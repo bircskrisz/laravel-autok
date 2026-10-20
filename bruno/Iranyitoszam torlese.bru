@@ -1,0 +1,15 @@
+meta {
+  name: Iranyitoszam torlese
+  type: http
+  seq: 9
+}
+
+delete {
+  url: {{baseUrl}}/postal-codes/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

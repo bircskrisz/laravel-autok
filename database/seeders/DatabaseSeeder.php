@@ -96,7 +96,6 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // REST API: teszt felhasználó a tokenes hitelesítéshez + irányítószámok
         User::firstOrCreate(
             ['email' => 'admin@example.com'],
             ['name' => 'Admin', 'password' => 'password']

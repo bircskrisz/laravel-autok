@@ -12,7 +12,6 @@ class CountyResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'postal_codes_count' => $this->whenCounted('postalCodes'),
         ];
     }
 }

@@ -1,0 +1,19 @@
+meta {
+  name: Iranyitoszam modositasa
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{baseUrl}}/postal-codes/1
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  { "postal_code": "1011", "city": "Budapest I.", "county_id": 1 }
+}
