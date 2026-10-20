@@ -1,0 +1,34 @@
+meta {
+  name: Uj iranyitoszam
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/postal-codes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "postal_code": "2465",
+    "city": "Ráckeresztúr",
+    "county_id": {{countyId}}
+  }
+}
+
+script:post-response {
+  bru.setEnvVar("postalCodeId", res.body.data.id);
+}
+
+tests {
+  test("HTTP 201", function () {
+    expect(res.status).to.equal(201);
+    expect(res.body.data.county.name).to.equal("Fejér");
+  });
+}

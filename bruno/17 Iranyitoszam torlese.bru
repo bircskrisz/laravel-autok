@@ -1,0 +1,21 @@
+meta {
+  name: Iranyitoszam torlese
+  type: http
+  seq: 17
+}
+
+delete {
+  url: {{baseUrl}}/postal-codes/{{postalCodeId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("HTTP 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

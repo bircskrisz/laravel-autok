@@ -1,0 +1,18 @@
+meta {
+  name: Kereses iranyitoszamra
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/postal-codes?search=60
+  body: none
+  auth: none
+}
+
+tests {
+  test("HTTP 200", function () {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.every(p => p.postal_code.startsWith("60"))).to.be.true;
+  });
+}

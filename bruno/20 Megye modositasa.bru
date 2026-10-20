@@ -1,0 +1,28 @@
+meta {
+  name: Megye modositasa
+  type: http
+  seq: 20
+}
+
+put {
+  url: {{baseUrl}}/counties/{{newCountyId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Átnevezett megye"
+  }
+}
+
+tests {
+  test("HTTP 200", function () {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.name).to.equal("Átnevezett megye");
+  });
+}

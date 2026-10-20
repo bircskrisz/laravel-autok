@@ -1,0 +1,21 @@
+meta {
+  name: Kijelentkezes
+  type: http
+  seq: 22
+}
+
+post {
+  url: {{baseUrl}}/logout
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("HTTP 200", function () {
+    expect(res.status).to.equal(200);
+  });
+}

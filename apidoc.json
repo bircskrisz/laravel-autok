@@ -1,0 +1,8 @@
+{
+  "name": "Irányítószám REST API",
+  "version": "1.0.0",
+  "description": "Magyar irányítószámok és megyék REST API-ja (Laravel 11 + Sanctum). Olvasás nyilvános, adatmódosítás Bearer tokennel.",
+  "title": "Irányítószám API dokumentáció",
+  "url": "http://localhost:8000",
+  "order": ["Auth", "Counties", "PostalCodes"]
+}

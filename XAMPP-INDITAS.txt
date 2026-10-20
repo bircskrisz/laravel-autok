@@ -1,0 +1,50 @@
+AUTÓ NYILVÁNTARTÓ – XAMPP INDÍTÁS
+=================================
+
+1. Másold a laravel-autok mappát ide: C:\xampp\htdocs\laravel-autok
+2. Indítsd el az Apache és a MySQL szolgáltatást a XAMPP Control Panelben.
+3. Nyisd meg a projekt mappájában a terminált (Windows: Shift + jobb klikk -> Terminál megnyitása).
+4. Ellenőrizd, hogy PHP 8.2 vagy újabb és Composer telepítve van.
+5. Futtasd:
+
+   composer install
+
+   Ha a .env fájl nem létezik, másold le a .env.example fájlt .env néven.
+   Ezután futtasd:
+
+   php artisan key:generate
+
+6. A .env fájl adatbázis-beállításai alapból:
+   DB_DATABASE=laravel_autok
+   DB_USERNAME=root
+   DB_PASSWORD=
+   Ha a MySQL root felhasználóhoz jelszó tartozik, írd be a DB_PASSWORD értékéhez.
+
+7. Az adatbázis létrehozása – VÁLASZD AZ EGYIK UTAT (a kettőt ne keverd):
+
+   A) Migráció + mintaadatok (ajánlott):
+      - phpMyAdminban hozz létre egy üres "laravel_autok" adatbázist
+        (utf8mb4_unicode_ci), majd futtasd:
+      php artisan migrate --seed
+
+   B) SQL import:
+      - Nyisd meg: http://localhost/phpmyadmin
+      - Importálás menü -> database.sql
+      (Ilyenkor a php artisan migrate parancsot NE futtasd.)
+
+8. Nyisd meg:
+   http://localhost/laravel-autok/
+   A gyökér index.php automatikusan átirányít a public mappába.
+
+TÁBLÁK (a feladat szerinti szülő–gyerek pár)
+--------------------------------------------
+manufacturers (autógyártók)  1 --- N  car_models (autómodellek)
+Mindkét táblához teljes CRUD van, mindkét listán van keresés,
+a modellek listája pedig szűrhető gyártóra (?manufacturer_id=).
+
+FONTOS
+------
+A vendor könyvtár szándékosan nincs a ZIP-ben; ezt a Composer hozza létre a
+composer install paranccsal. Enélkül a Laravel nem tud elindulni.
+Ha 404-et kapsz, ellenőrizd, hogy a projekt tényleg a htdocs/laravel-autok
+mappában van-e. Ha adatbázis-hibát kapsz, ellenőrizd a .env DB_* értékeit.

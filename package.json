@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "apidoc": "apidoc -c apidoc.json -i app/Http/Controllers/Api -o public/apidoc"
+  },
+  "devDependencies": {
+    "apidoc": "^1.2.0"
+  }
+}

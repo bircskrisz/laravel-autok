@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Manufacturer;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -94,5 +95,13 @@ class DatabaseSeeder extends Seeder
                 $manufacturer->carModels()->firstOrCreate(['model_code' => $model['model_code']], $model);
             }
         }
+
+        // REST API: teszt felhasználó a tokenes hitelesítéshez + irányítószámok
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            ['name' => 'Admin', 'password' => 'password']
+        );
+
+        $this->call(PostalCodeSeeder::class);
     }
 }

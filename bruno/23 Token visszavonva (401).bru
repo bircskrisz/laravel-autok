@@ -1,0 +1,21 @@
+meta {
+  name: Token visszavonva (401)
+  type: http
+  seq: 23
+}
+
+get {
+  url: {{baseUrl}}/user
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("HTTP 401", function () {
+    expect(res.status).to.equal(401);
+  });
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Torolt iranyitoszam (404)
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{baseUrl}}/postal-codes/{{postalCodeId}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("HTTP 404", function () {
+    expect(res.status).to.equal(404);
+  });
+}

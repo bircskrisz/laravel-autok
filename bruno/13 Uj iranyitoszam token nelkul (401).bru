@@ -1,0 +1,25 @@
+meta {
+  name: Uj iranyitoszam token nelkul (401)
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/postal-codes
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "postal_code": "2400",
+    "city": "Teszt",
+    "county_id": 1
+  }
+}
+
+tests {
+  test("HTTP 401", function () {
+    expect(res.status).to.equal(401);
+  });
+}
